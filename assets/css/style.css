@@ -5,6 +5,283 @@
 }
 
 
-header, main {
-	padding: 0 2.5em;
+/* ------Début Class Réutilisable---------- */
+
+.btn {
+    color: #0065FC;
+}
+
+.checked {
+    color:#0065FC;
+}
+
+.empty {
+    color: #d8d8d8;
+}
+
+a:link { 
+    text-decoration: none;
+    color: black;
+}
+a:visited {
+    color: black;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+/* ------Fin Class Réutilisable---------- */
+
+body {
+    width: 100%;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 65px;
+}
+
+main, footer {
+	padding: 0 0 0 55px;
+}
+
+header img {
+    width: 95px;
+    height: 45px;
+    padding: 44px 0 0 50px;
+}
+
+nav {
+    padding-right: 50px;
+    width: 305px;
+}
+
+nav ul {
+    display: flex;
+    height: 100%;
+}
+
+nav ul li {
+    padding-top: 49px;
+    height: 100%;
+}
+
+nav a {
+    padding: 46px 35px 10px 35px;
+    /* border-bottom: 3px solid #F2F2F2;  A GARDER POUR LE MOBILE */
+}
+
+nav a:hover {
+    border-top: 2.3px solid #0065FC;
+    /* border-bottom: 3px solid #0065FC;  A GARDER POUR LE MOBILE */
+    color: #0065FC;
+}
+
+h1 {
+    margin: 16px 0 10px 0;
+    font-size: 22px;
+}
+
+form {
+    display: flex;
+    margin: 0;
+    padding-top: 20px;
+
+}
+
+form i {
+    border: none;
+    border-radius: 10px 0 0 10px;
+    display: inline-block;
+    padding: 11px 15px;
+    font-size: 14px;
+    color: black;
+    background-color: #efefef;
+    border: 2px solid #efefef;
+}
+
+form i::before {
+    position: relative;
+    top: 5px;
+}
+
+input {
+    height: 50px;
+    width: 235px;
+    padding-left: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    border-top: 1.5px solid #F2F2F2;
+    border-right: 0;
+    border-bottom: 1.5px solid #F2F2F2;
+    border-left: 0;
+}
+
+input::placeholder {
+    color: black;
+}
+
+button {
+    background-color: #0065FC;
+    width: 135px;
+    height: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    border-style: none;
+    border-radius: 0 16px 16px 0;
+    color: white;
+}
+
+.filters {
+    display: flex;
+    align-items: center;
+    height: 110px;
+    padding-bottom: 10px;
+}
+
+.filters a:hover {
+    background-color: #DEEBFF;
+}
+
+.filters h2 {
+    padding-right: 30px;
+    font-size: 18px;
+}
+
+.filters ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.filters li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 45px;
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 25px;
+    padding-right: 40px;
+    border: 2.5px solid #d8d8d8;
+    border-radius: 50px;
+}
+
+.filters i {
+    width: 50px;
+    height: 50px;
+    color: #0065FC;
+    background-color: #DEEBFF;
+    border-radius: 50px;
+}
+
+.search_filters p i {
+    margin-right: 10px;
+    color: white;
+    background-color: #0065FC;
+}
+
+#logements {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#logements div {
+    background-color: #F2F2F2;
+    width: 850px;
+    margin-right: 40px;
+}
+
+.hotels-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.hotels-cards li {
+    width: 250px;
+    height: 200px;
+    /* border-radius: 20px; */
+    border: 3px solid red;
+    font-size: 14px;
+    background-color: white;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+#logements li:hover {
+    background-color: #020000;
+}
+
+.hotel-photo {
+    background-color: white;
+}
+
+.hotel-photo img {
+    width: 230px;
+    height: 110px;
+}
+
+#logements div .hotel-info {
+    background-color: white;
+}
+
+.hotel-info {
+    padding-left: 15px;
+}
+
+.hotel-info h3 {
+    margin: 15px 0 0 0;
+}
+
+aside {
+    width: 420px;
+    background-color: #F2F2F2;
+}
+
+aside .hotels-cards li {
+    display: flex;
+    flex-direction: row;
+    width: 350px;
+    height: 150px;
+}
+
+aside .hotel-photo img {
+    width: 130px;
+    height: 140px;
+}
+
+footer {
+    display: flex;
+    height: 220px;
+    background-color: #F2F2F2;
+}
+
+.section_footer {
+    display: flex;
+    flex-direction: column;
+    padding-right: 250px;
+
+}
+
+.section_footer h3 {
+    margin: 40px 0 20px 0;
+}
+
+footer ul {
+    display: flex;
+    flex-direction: column;
+}
+
+footer li {
+    padding-bottom: 10px;
 }
