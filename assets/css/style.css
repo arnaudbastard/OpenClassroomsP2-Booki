@@ -1,7 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap');
 
 * {
     font-family: 'Raleway', sans-serif;
+}
+
+body {
+    -webkit-text-size-adjust: none; /* Pour empêcher le changement de taille des polices par le moteur Webkit sous Safari et dans certains cas */
 }
 
 header, main {
@@ -9,10 +13,17 @@ header, main {
 }
 /* ------ Début classes réutilisables---------- */
 
+a:link { 
+    text-decoration: none;
+    color: black;
+}
+a:visited {
+    color: black;
+}
+
 
 .hotel-info h3, 
 #activities h3 {
-	color:black;
 	margin-bottom: 5px;
 }
 
@@ -25,7 +36,7 @@ header, main {
 }
 
 .fa {
-    color:#d9d9d9;
+    color:#D9D9D9;
     font-size: 0.85em;
     letter-spacing: -2px;
 }
@@ -34,18 +45,22 @@ header, main {
     color: #0065FC;
 }
 
+a:hover span.unchecked {
+    color: #B0B0B0;
+}
+
 
 /* ------ Fin classes réutilisables---------- */
 
 /* ------Balise Règles général---------- */
 
 h1 {
-	font-size: 1.4em;
-    padding-bottom: 8px;
+	font-size: 1.37em;
+    padding-bottom: 0.5em;
 }
 
 h2 {
-	font-size: 1.4em;
+	font-size: 1.37em;
 }
 
 /* ------Balise Règles général Fin---------- */
@@ -55,21 +70,25 @@ h2 {
 header {
 	display: flex;
 	flex-flow: row nowrap;
-	/* align-items: end; */
 	justify-content: space-between;
 	height: 65px;
-    padding-bottom: 30px;
+    padding-bottom: 3em;
 }
 
-header nav {
-	height: 100%;
+.booki_logo {
+    height: 70%;
+    padding-top: 2em;
 }
 
 header a {
-    height: 80%;
+    height: 100%;
 }
 
 header a img {
+    height: 100%;
+}
+
+header nav {
     height: 100%;
 }
 
@@ -84,14 +103,9 @@ header a img {
 	flex-direction: column;
 	justify-content: center;
 	height: 100%;
-	padding: 1em 2em;
+	padding: 1.4em 2em;
 	border-top: 2px solid white;
 	font-size: 1em;
-    color: black;
-}
-
-.menu a:visited {
-    color: black;
 }
 
 .menu li a:hover, .menu li a.active {
@@ -104,12 +118,13 @@ header a img {
 main {
     display: grid;
     grid-template-columns: 6fr 3fr;
-    grid-gap: 2.5em;
+    gap: 2.5em;
 }
 
 .search_filters {
     grid-row: 1 / auto;
     grid-column: 1 / 3;
+    margin-bottom: -0.4em;
 }
 
 .search_filters p {
@@ -121,10 +136,10 @@ main {
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    margin: 20px 0 30px;
+    margin: 1.3em 0 2em;
 }
 
-.search_filters form i {
+.search_filters form > i {
     border: none;
     border-radius: 15px 0 0 15px;
     display: inline-block;
@@ -138,11 +153,12 @@ main {
 }
 
 .search_filters input {
+    border-radius: 0; /* Pour éviter les bords arrondis sur Webkit (Safari) */
     border: none;
     padding: 10px 15px;
-    font-size: 1.1em;
+    font-size: 1.15em;
     font-weight: bold;
-    width: 250px;
+    width: 235px;
     height: 50px;
     border-top: 1.5px solid #F2F2F2;
     border-bottom: 1.5px solid #F2F2F2;
@@ -150,12 +166,12 @@ main {
 
 .search_filters input::placeholder {
     color: black;
+    opacity: 1; /* Pour avoir la même apparence sur Firefox */
 }
 
-.search_filters button {
+.search_filters .btnSearch {
     border: none;
     border-radius: 0 15px 15px 0;
-    display: inline-block;
     padding: 9px 15px;
     text-align: center;
     text-decoration: none;
@@ -170,28 +186,44 @@ main {
     font-size: 1.1em;
 }
 
+.search_filters .btnMobile {
+    display: none;
+    border: none;
+    border-radius: 15px;
+    /* padding: 9px 15px; */
+    text-align: center;
+    text-decoration: none;
+    transition-duration: 0.2s;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+    background-color: #0065FC;
+    border: 1.5px solid #0065FC;
+    width: 50px;
+    height: 50px;
+    font-size: 1.1em;
+    right: 15px;
+    position: relative;
+}
+
 .search_filters button:hover {
     color: #0065FC;
     background-color: white; 
-}
-
-.search_filters button i {
-    display: none;
 }
 
 .filters {
     display: flex;
     flex-flow: row wrap;
     align-items: baseline;
-    justify-content: flex-start;
     gap: 30px;
     font-size: 1.15em;
-    padding-bottom: 20px;
+    padding-bottom: 0.8em;
 }
 
 .filters h2 {
     font-size: 1em;
 }
+
 .filters ul {
     display: flex;
     flex-flow: row wrap;
@@ -199,15 +231,25 @@ main {
 }
 
 .filters .btn {
-    position: relative;
     display: inline-block;
-    padding: 2px 25px 2px 12px;
-    border: 2px solid #d9d9d9;
+    padding: 0 1em 0 0.5em;
+    border: 2.2px solid #D9D9D9;
     border-radius: 30px;
     color: black;
     cursor: pointer;
-    transition: all 0.3s;
     font-weight: bold;
+    transition: all 0.3s;
+}
+
+.filters .btn:before {
+    display: inline-block;
+    position: relative;
+    right: 10px;
+    font-family: "Font Awesome 5 Free";
+    color: #0065FC;
+    background-color: #DEEBFF;
+    border-radius: 50%;
+    outline: #DEEBFF solid 2px;
 }
 
 .filters .btn:hover {
@@ -216,53 +258,19 @@ main {
     border-color: #DEEBFF;
 }
 
-.filters .btn:before {
-    display: inline-block;
-    position: relative;
-    right: 10px;
-    padding: 10px;
-    line-height: 1;
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    color: #0065FC;
-    background-color: #DEEBFF;
-    border-radius: 50%;
-    outline: #DEEBFF solid 3px;
-    outline-offset: -1px;
+.filters .icon-money:before, .filters .icon-child:before, .filters .icon-heart:before, .filters .icon-dog:before {
+    text-align: center;
+    line-height: 45px;
+    height: 45px;
+    width: 45px;
 }
-
-.search_filters .icon-info {
-    margin: 20px 0 0 0;
-    padding: 0 0 0 25px;
-}
-
-.search_filters .icon-info:before {
-    display: inline-block;
-    position: relative;
-    bottom: 1px;
-    right: 25px;
-    margin: 0px -18px 0px 0px;
-    padding: 6px 10px;
-    font-family: "Font Awesome 5 Free";
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 1;
-    content: "";
-    color: rgb(0, 101, 252);
-    background-color: white;
-    border: 1px solid #d9d9d9;
-    border-radius: 100%;
-}
-
 
 .filters .icon-money:before {
     content: "\f53a";
-    padding: 10px 8.5px;
 }
 
 .filters .icon-child:before {
     content: "\f1ae";
-    padding: 10px 12px;
 }
 
 .filters .icon-heart:before {
@@ -273,10 +281,26 @@ main {
     content: "\f6d3";
 }
 
+.icon-info {
+    display: flex;
+    align-items: baseline;
+    margin-top: 1.3em;
+}
+
+.icon-info i {
+    margin-right: 1.1em;
+    padding: 0.5em 0.81em;
+    font-size: 12px;
+    color: #0065FC;
+    background-color: white;
+    border: 1.5px solid #D9D9D9;
+    border-radius: 100%;
+}
+
 /* Début section hébergements */
 #logements {
     grid-row: 2;
-    padding: 2.5em 2.5em 1em;
+    padding: 2.4em 2.5em 1em;
     background-color: #F2F2F2;
     border-radius: 20px;
 }
@@ -288,22 +312,21 @@ main {
 }
 
 #logements a {
-    padding: 5px;
+    padding: 0.38em;
     height: 100%;
     display: block;
     box-sizing: border-box;
     font-size: 0.85em;
-    color: black;
     background-color: white;
     border-radius: 20px;
-    transition: all 0.5s;
-    box-shadow: 0 0 10px rgb(0, 0, 0, 0.2);
+    transition: all 0.3s;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 #logements a:hover {
     background-color: #DEEBFF;
-    box-shadow: 0 30px 20px rgb(0, 0, 0, 0.3);
-    transform: translateY(-10px);
+    box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.3);
+    transform: translateY(-5px);
 }
 
 #logements a:hover,
@@ -322,38 +345,42 @@ main {
     height: 100%;
     object-fit: cover;
     border-radius: 15px 15px 0 0;
+    object-position: 0% 55%;
+
 }
 
 #logements .hotel-info {
     padding: 10px 13px 5px;
 }
 
-.stars {
-
-}
-
 #logements button {
     display: inline-block;
-    margin-top: 2.5em;
+    margin-top: 2.4em;
     cursor: pointer;
-    font-size: 1.1em;
+    font-size: 1.15em;
     font-weight: bold;
-    color: black;
     background: none;
     border: none;
+    color: black;
 }
 /* Fin section hébergements */
 
 /* Début section populaires */
 .most_populars {
     grid-row: 2;
-    padding: 2.5em;
+    padding: 2.4em 2.5em 2.5em;
     background-color: #F2F2F2;
     border-radius: 20px;
 }
 
-.most_populars h2 i {
-    float: right;
+.aside_title {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.aside_title i {
+    font-size: 1.5em;
 }
 
 .most_populars .hotels-cards {
@@ -390,10 +417,9 @@ main {
 
 .most_populars a {
     position: relative;
-    padding: 5px;
-    color: black;
+    padding: 0.32em;
     transition: all 0.3s;
-    box-shadow: 0 0 10px rgb(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .most_populars a:hover,
@@ -405,8 +431,8 @@ main {
 
 .most_populars a:hover {
     background-color: #DEEBFF;
-    box-shadow: 0 30px 20px rgb(0, 0, 0, 0.3);
-    transform: translateY(-10px);
+    box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.3);
+    transform: translateY(-5px);
 }
 
 .most_populars .populars-stars {
@@ -420,39 +446,39 @@ main {
 /* Début section activités */
 #activities {
     grid-row: 3;
-    grid-column: 1/3;
-    margin: 0 0 3em;
+    grid-column: 1 / 3;
+    margin: 0 0 3.8em;
 }
 
 #activities .titre-section {
-    margin: 1em 0;	
+    margin: 1em 0 1.1em;	
 }
 
 #activities ul {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 4em 4em 4em 4em 4em;
-    gap: 2.5em;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(12, 0.5em);
+    gap: 2em 2.7em;
 }
 
 #activities ul .card-type1 {
-    grid-row: 1/6;
+    grid-row: 1/13;
 }
 
 #activities ul .card-type2 {
-    grid-row: 1/4;
+    grid-row: 1/8;
 }
 
 #activities ul .card-type3 {
-    grid-row: 4/6;
+    grid-row: 8/13;
 }
 
 #activities ul .card-type4 {
-    grid-row: 1/3;
+    grid-row: 1/7;
 }
 
 #activities ul .card-type5 {
-    grid-row: 3/6;
+    grid-row: 7/13;
 }
 
 #activities a {
@@ -460,9 +486,9 @@ main {
     flex-direction: column;
     height: 100%;
     border-radius: 20px;
-    box-shadow: 0 0 10px rgb(0, 0, 0, 0.2);
+    box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.2);
     background-color: white;
-    transition: all 0.5s;
+    transition: all 0.3s;
 }
 
 #activities a:hover,
@@ -472,20 +498,29 @@ main {
 
 #activities a:hover {
     background-color: #DEEBFF;
-    box-shadow: 0 30px 20px rgb(0, 0, 0, 0.3);
-    transform: translateY(-10px);
+    box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.3);
+    transform: translateY(-5px);
 }
 
 #activities a img {
     height: 100%;
     width: 100%;
+    max-height: 100%;
     object-fit: cover;
     overflow: hidden;
     border-radius: 20px 20px 0 0;
 }
 
+.card-type2 img, .card-type5 img {
+    object-position: 37% 45%;
+}
+
+.card-type4 img {
+    object-position: 0 0;
+}
+
 #activities a h3 {
-    padding: 1.5em 1.2em 1em;
+    padding: 1.2em 1.1em 0.75em;
     font-size: 1em;
 }
 /* Fin section activités */
@@ -514,10 +549,6 @@ footer ul li {
     padding: 0.35em 0;
 }
 
-footer ul li a {
-    color: black;
-}
-
 footer ul li a:hover {
     color: #0065FC;
 }
@@ -530,44 +561,15 @@ footer ul li a:hover {
     }
 
     main {
-        grid-gap: 1.5em;
+        gap: 1.5em;
     }
 
     header {
         padding-bottom: 30px;
     }
 
-    .menu a {
-        /* font-size: 1em; */
-    }
-
-    h1 {
-        /* font-size: 1.4em; */
-    }
-
-    h2 {
-        /* font-size: 1.35em; */
-    }
-
-    h3 {
-        /* font-size: 1.1em; */
-    }
-
-    .search_filters p {
-        /* font-size: 1em; */
-    }
-
-    .search_filters button {
-        /* font-size: 1.1em; */
-    }
-    
     .filters {
-        /* font-size: 1.05em; */
         gap: 15px;
-    }
-
-    .filters h2 {
-        /* font-size: 1.15em; */
     }
 
     #logements {
@@ -576,14 +578,6 @@ footer ul li a:hover {
 
     #logements .hotels-cards {
         gap: 1.5em;
-    }
-
-    .fa {
-        /* font-size: 0.75em; */
-    }
-
-    #logements button {
-        /* font-size: 1.1em; */
     }
 
     .most_populars {
@@ -600,7 +594,6 @@ footer ul li a:hover {
     }
 
     .most_populars .populars-stars {
-        /* font-size: 0.95em; */
         bottom: 20px;
     }
 
@@ -612,10 +605,6 @@ footer ul li a:hover {
         padding: 2.5em;
     }
 
-    footer ul {
-        /* font-size: 1em; */
-    }
-
 }
 
 @media (max-width:992px) {
@@ -623,7 +612,7 @@ footer ul li a:hover {
     main {
         display: grid;
         grid-template-columns: 1fr;
-        grid-gap: 0;
+        gap: 0;
         row-gap: 1.5em;
     }
 
@@ -652,12 +641,12 @@ footer ul li a:hover {
     }
     
     .filters {
-        font-size: 1.05em;
+        font-size: 1em;
         gap: 15px;
     }
 
     .filters h2 {
-        font-size: 1.15em;
+        font-size: 1.1em;
     }
 
     .fa {
@@ -677,12 +666,20 @@ footer ul li a:hover {
         grid-template-columns: 1fr 1fr;
     }
 
+    #logements .hotel-photo img {
+        object-position: 0% 60%;
+    }
+
     .most_populars {
         grid-row: 2;
     }
     
     .most_populars .hotel-photo {
         width: 50%;
+    }
+
+    .most_populars .hotel-photo img {
+        object-position: 0% 57%;
     }
 
     .most_populars .hotel-info {
@@ -712,10 +709,6 @@ footer ul li a:hover {
 		grid-row: auto;
 	}
 
-    footer {
-        gap: 4em;
-    }
-
     footer ul {
         font-size: 1em;
     }
@@ -728,13 +721,14 @@ footer ul li a:hover {
         flex-direction: column;
         justify-content: center;
         height: 120px;
+        margin-bottom: 1.5em;
 	}
 
     .booki_logo {
         display: flex;
         justify-content: center;
         height: 35%;
-        padding-top: 3em;
+        padding: 1.4em 0 1.8em;
     }
 
     header a {
@@ -742,14 +736,11 @@ footer ul li a:hover {
     }
 
     header nav {
-        display: flex;
-        justify-content: center;
-		margin-bottom: 2.5em;
 		width: 100%;
 	}
     
     .menu {
-        width: 100%;
+        flex-flow: unset;
     }
 
     .menu li {
@@ -758,15 +749,17 @@ footer ul li a:hover {
 
     .menu a {
         width: 100%;
-        padding: 0.5em 0 0.3em 0;
-        border-bottom: 3px solid #F2F2F2;
         text-align: center;
+		padding: 0 0 0.5em;
+		border: none;
+		border-bottom: 3px #F2F2F2 solid;
+		font-size: 1em;
     }
 
     .menu li a:hover, .menu li a.active {
-        color:#0065FC;
-        border-top: white;
-        border-bottom: 3px solid #0065FC;
+		color:#0065FC;
+		border: none;
+		border-bottom: 3px #0065FC solid;
     }
 
     /* .menu {
@@ -794,12 +787,32 @@ footer ul li a:hover {
         padding: 1.5em;
     }
 
-    .search_filters button span {
+    .search_filters form {
+        margin: 2.1em 0;
+    }
+
+    .search_filters .btnSearch {
         display: none;
     }
 
-    .search_filters button i {
+    .search_filters .btnMobile {
         display: block;
+        color: black;
+    }
+
+    .search_filters .btnMobile:hover {
+        background-color: #0065FC;
+    }
+
+    .search_filters .btnMobile:before {
+        display: inline-block;
+        position: relative;
+        font-family: "Font Awesome 5 Free";
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 1;
+        content: "\f002";
+        color: white;
     }
 
     #logements {
@@ -809,6 +822,11 @@ footer ul li a:hover {
 
     #logements .hotels-cards {
         grid-template-columns: 1fr;
+        gap: 1em;
+    }
+
+    #logements .hotel-photo img {
+        object-position: 0% 65%;
     }
 
     #logements button {
@@ -820,14 +838,30 @@ footer ul li a:hover {
         border-radius: 0;
     }
 
+    .most_populars .hotels-cards {
+        gap: 1em;
+    }
+
+    .most_populars .hotel-photo {
+        width: 45%;
+    }
+
+    .most_populars .hotel-info {
+        width: 55%;
+    }
+
     #activities {
         padding: 0 1.5em 0.5em 1.5em;
     }
 
+    #activities .titre-section {
+        margin: 1em 0 1.3em;
+    }
+
 	#activities ul {
 		grid-template-columns: repeat(1, 1fr);
-		grid-template-rows: repeat(6, 15em);
-        gap: 2em;
+		grid-template-rows: repeat(6, 12em);
+        gap: 1.5em;
 	}
 
 	#activities ul .card-type1,
@@ -837,6 +871,19 @@ footer ul li a:hover {
 	#activities ul .card-type5 {
 		grid-row: auto;
 	}
+
+    .card-type1 img {
+        object-position: 0 65%;
+    }
+
+    .card-type2 img, .card-type5 img {
+        object-position: 0% 48%;
+    }
+    
+    .card-type4 img {
+        object-position: 0 24%;
+    }
+
 
 	#activities a h3 {
 		font-size: 1em;
